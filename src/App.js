@@ -1,25 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Component }from 'react'
+import Navbar from './components/Navbar';
+import News from './components/News';
+import { createRoot } from "react-dom/client";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link
+} from "react-router-dom";
+import LoadingBar from 'react-top-loading-bar'
+import {useState} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  pageSize = 18;
+  country="in";
+  state={
+    progress:10
+  }
+  setProgress=(progress)=>{
+    this.setState({progress:progress})
+  }
+  render() {
+    return (
+      
+      <div>
+        <BrowserRouter>
+        <LoadingBar
+        color='#f11946'
+        progress={this.state.progress}
+        
+      />
+        <Navbar/>
+        <Routes>
+        <Route exact path="/" element={<News setProgress={this.setProgress} pageSize={this.pageSize} country={this.country} category={this.category="general"} key="general"/>} />
+        <Route exact path="/business" element={<News setProgress={this.setProgress} pageSize={this.pageSize} country={this.country} category={this.category="business" } key="business"/>} />
+        <Route exact path="/entertainment" element={<News setProgress={this.setProgress} pageSize={this.pageSize} country={this.country} category={this.category="entertainment"} key="entertainment"/>} />
+        <Route exact path="/health" element={<News setProgress={this.setProgress} pageSize={this.pageSize} country={this.country} category={this.category="health"} key="health"/>} />
+        <Route exact path="/science" element={<News setProgress={this.setProgress} pageSize={this.pageSize} country={this.country} category={this.category="science"} key="science"/>} />
+        <Route exact path="/technology" element={<News setProgress={this.setProgress} pageSize={this.pageSize} country={this.country} category={this.category="technology"} key="technology"/>} />
+        <Route exact path="/general" element={<News setProgress={this.setProgress} pageSize={this.pageSize} country={this.country} category={this.category="general"} key="general"/>} />
+        <Route exact path="/sports" element={<News setProgress={this.setProgress} pageSize={this.pageSize} country={this.country} category={this.category="sports"} key="sports"/>} />
+    
+        {/*<News />*/}
+        </Routes>
+
+
+        </BrowserRouter>
+      </div>
+      
+    )
+  }
 }
-
-export default App;
