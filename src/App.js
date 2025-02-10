@@ -13,7 +13,7 @@ import LoadingBar from 'react-top-loading-bar'
 
 const App=()=> {
   const pageSize = 18;
-  const country="in"
+  const country="us"
   //const apiKey=process.env.REACT_APP_API_KEY;
   const apiKey='c9d00cf36bec455b9bb5360d48b6f8a1'
 
