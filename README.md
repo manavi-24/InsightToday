@@ -54,7 +54,7 @@ To deploy your website, you can use **Vercel** or **Netlify**:
    ```
 2. Deploy using Vercel or Netlify CLI.  
 
-❕❕❕❕❕❕❕❕❕❕❕❕❕
+
 📰 NewsAPI Subscription Limitation
 ⚠ Note: The NewsAPI is only available in the production environment. Outside of production, a paid subscription is required to access the API.
 
